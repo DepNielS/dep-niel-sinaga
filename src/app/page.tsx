@@ -1,23 +1,34 @@
+import { Navbar } from "../components/layout/Navbar";
+import { Hero } from "../components/home/Hero";
+import { Stats } from "../components/home/Stats";
+import { TechStack } from "../components/home/TechStack";
+import  Skills  from "../components/home/Skills";
+import { About } from "../components/home/About";
+import ExperienceEducation from "../components/home/ExperienceEducation";
+import Contact from "../components/home/Contact";
+import Footer from "../components/layout/Footer";
+import { FeaturedProjects } from "../components/home/FeaturedProjects";
+
+
 export default function Home() {
   return (
+    <>
     <main className="min-h-screen">
       <div className="background-glow" />
 
-      <section className="container-main flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-[var(--primary-400)]">
-            Junior Web Developer
-          </p>
-
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Dep` Niel Sinaga
-          </h1>
-
-          <p className="mt-4 text-[var(--navy-500)]">
-            Portfolio coming together.
-          </p>
-        </div>
-      </section>
+      <Navbar />
+      <Hero />
+      <Stats />
+      <TechStack />
+      <FeaturedProjects />
+      <About />
+      <Skills />
+      <ExperienceEducation />
+      <Contact />
+      
     </main>
+
+    <Footer />
+    </>
   );
 }

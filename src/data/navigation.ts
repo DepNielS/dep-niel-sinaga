@@ -15,8 +15,4 @@ export const navigation = [
     label: "Experience",
     href: "#experience",
   },
-  {
-    label: "Contact",
-    href: "#contact",
-  },
 ];
