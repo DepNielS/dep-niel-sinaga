@@ -16,11 +16,13 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Drizzle",
     ],
-    image: "/images/projects/iac/IAC.png",
+     image: "/images/projects/iac/cover.webp",
     role: "Full-Stack Development",
-    status: "In Development",
+    status: "Completed",
     github:
       "https://github.com/DepNielS/Indonesia-Activity-Center.git",
+    liveDemo:
+      "https://indonesia-activity-center.vercel.app/",
   },
 
   {
@@ -60,5 +62,7 @@ export const projects: Project[] = [
     status: "Completed",
     github:
       "https://github.com/DepNielS/MyTaskManage_StateEvent.git",
+      liveDemo:
+      "https://my-task-manage-state-event.vercel.app/",
   },
 ];

@@ -56,28 +56,6 @@ export function ProjectShowcase({
             ))}
           </div>
 
-          {/* CTA */}
-          <Link
-            href={`/projects/${project.slug}`}
-            className="
-              mt-7
-              inline-flex
-              items-center
-              gap-2
-              text-sm
-              font-semibold
-              text-foreground
-              transition-colors
-              duration-300
-              hover:text-primary-400
-            "
-          >
-            View Case Study
-            <ArrowUpRight
-              size={17}
-              aria-hidden="true"
-            />
-          </Link>
         </div>
       </div>
 

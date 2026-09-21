@@ -1,12 +1,18 @@
 "use client";
 
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navigation } from "@/src/data/navigation";
-import { ThemeToggle } from "./ThemeToggle";
 
-export function MobileNav() {
+import { navigation } from "@/src/data/navigation";
+import {
+  isNavigationActive,
+  resolveNavigationHref,
+} from "@/src/lib/navigation";
+
+export default function MobileNav() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => {
@@ -15,80 +21,50 @@ export function MobileNav() {
 
   return (
     <div className="lg:hidden">
-      <div className="flex items-center gap-2">
-        <ThemeToggle />
+      {/* Menu Button */}
+      <button
+        type="button"
+        onClick={() => setIsOpen((previous) => !previous)}
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={isOpen}
+        className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-[var(--foreground)] transition-colors duration-300 hover:bg-[var(--surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+      >
+        {isOpen ? (
+          <X size={21} strokeWidth={1.8} />
+        ) : (
+          <Menu size={21} strokeWidth={1.8} />
+        )}
+      </button>
 
-        <button
-          type="button"
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="
-            inline-flex size-10 items-center justify-center
-            rounded-full
-            border border-navy-700
-            text-white
-            transition-colors duration-300
-            hover:border-primary-500
-            hover:text-primary-400
-          "
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? (
-            <X size={18} aria-hidden="true" />
-          ) : (
-            <Menu size={18} aria-hidden="true" />
-          )}
-        </button>
-      </div>
-
+      {/* Mobile Menu */}
       {isOpen && (
-        <div
-          className="
-            absolute left-4 right-4 top-[calc(100%+0.75rem)]
-            rounded-2xl
-            border border-navy-700
-            bg-navy-900/95
-            p-4
-            shadow-2xl
-            backdrop-blur-xl
-          "
-        >
-          <nav className="flex flex-col" aria-label="Mobile navigation">
-            {navigation.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={closeMenu}
-                className="
-                  rounded-xl px-4 py-3
-                  text-sm font-medium text-slate-200
-                  transition-colors duration-300
-                  hover:bg-primary-500/10
-                  hover:text-primary-400
-                "
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            <Link
-              href="#contact"
-              onClick={closeMenu}
-              className="
-                mt-2
-                inline-flex items-center justify-center gap-2
-                rounded-xl
-                bg-primary-500
-                px-4 py-3
-                text-sm font-semibold text-white
-                transition-colors duration-300
-                hover:bg-primary-600
-              "
+        <div className="absolute left-0 right-0 top-full border-t border-[var(--border)] bg-[var(--background)]">
+          <div className="container-main py-5">
+            <nav
+              aria-label="Mobile navigation"
+              className="flex flex-col"
             >
-              Contact
-              <ArrowUpRight size={15} aria-hidden="true" />
-            </Link>
-          </nav>
+              {navigation.map((item) => {
+                const href = resolveNavigationHref(item, pathname);
+                const isActive = isNavigationActive(item, pathname);
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={href}
+                    onClick={closeMenu}
+                    className={`border-b border-[var(--border)] py-4 text-base font-medium transition-colors duration-300 last:border-b-0 ${
+                      isActive
+                        ? "text-[var(--accent)]"
+                        : "text-[var(--foreground)] hover:text-[var(--accent)]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
         </div>
       )}
     </div>

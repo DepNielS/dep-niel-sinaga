@@ -86,30 +86,7 @@ export function ProjectMiniCard({
           ))}
         </div>
 
-        <Link
-          href={`/projects/${project.slug}`}
-          className="
-            mt-6
-            inline-flex
-            items-center
-            gap-2
-            text-sm
-            font-semibold
-            text-foreground
-            transition-colors
-            duration-300
-            hover:text-primary-400
-          "
-        >
-          {project.slug === "my-task-manager"
-            ? "View Project"
-            : "View Case Study"}
-
-          <ArrowUpRight
-            size={17}
-            aria-hidden="true"
-          />
-        </Link>
+        
       </div>
     </article>
   );

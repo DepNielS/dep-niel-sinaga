@@ -145,27 +145,7 @@ export function ProjectCard({
           </div>
 
           <div className="mt-7 flex flex-wrap items-center gap-5">
-            <Link
-              href={`/projects/${project.slug}`}
-              className="
-                inline-flex
-                items-center
-                gap-2
-                text-sm
-                font-semibold
-                text-white
-                transition-colors
-                duration-300
-                hover:text-primary-400
-              "
-            >
-              View Case Study
-              <ArrowUpRight
-                size={16}
-                aria-hidden="true"
-              />
-            </Link>
-
+           
             {project.github && (
               <Link
                 href={project.github}

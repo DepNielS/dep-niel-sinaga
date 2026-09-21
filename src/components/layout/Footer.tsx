@@ -2,7 +2,7 @@ import { ArrowUp, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const footerLinks = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },

@@ -1,11 +1,19 @@
-export const navigation = [
+export interface NavigationItem {
+  label: string;
+  href: string;
+  hash?: string;
+}
+
+export const navigation: NavigationItem[] = [
   {
     label: "Home",
     href: "/",
+    hash: "",
   },
   {
     label: "About",
-    href: "#about",
+    href: "/",
+    hash: "#about",
   },
   {
     label: "Projects",
@@ -13,6 +21,9 @@ export const navigation = [
   },
   {
     label: "Experience",
-    href: "#experience",
+    href: "/",
+    hash: "#experience",
   },
+  
+  
 ];
