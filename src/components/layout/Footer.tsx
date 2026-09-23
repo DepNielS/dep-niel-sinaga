@@ -1,5 +1,9 @@
 import { ArrowUp, Mail } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaFilePdf,
+} from "react-icons/fa6";
 
 const footerLinks = [
   { label: "Home", href: "" },
@@ -62,42 +66,63 @@ export default function Footer() {
             </span>
           </p>
 
-          {/* Social Links */}
+          {/* Professional Links */}
           <div className="flex items-center gap-4">
+            {/* Email */}
             <a
               href="mailto:depniels12@gmail.com"
               aria-label="Email"
               className="text-[var(--foreground)]/55 transition-colors duration-300 hover:text-[var(--accent)]"
             >
-              <Mail size={16} strokeWidth={1.7} />
+              <Mail
+                size={16}
+                strokeWidth={1.7}
+              />
             </a>
 
+            {/* GitHub */}
             <a
               href="https://github.com/DepNielS"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="GitHub"
               className="text-[var(--foreground)]/55 transition-colors duration-300 hover:text-[var(--accent)]"
             >
               <FaGithub size={16} />
             </a>
 
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/dep-niel-sinaga-26202a309"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="text-[var(--foreground)]/55 transition-colors duration-300 hover:text-[var(--accent)]"
             >
               <FaLinkedin size={16} />
             </a>
 
+            {/* CV */}
+            <a
+              href="/documents/Dep-Niel-Sinaga-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="CV"
+              className="text-[var(--foreground)]/55 transition-colors duration-300 hover:text-[var(--accent)]"
+            >
+              <FaFilePdf size={16} />
+            </a>
+
+            {/* Back to Top */}
             <a
               href="/"
               aria-label="Back to top"
               className="ml-2 border-l border-[var(--border)] pl-4 text-[var(--foreground)]/55 transition-colors duration-300 hover:text-[var(--accent)]"
             >
-              <ArrowUp size={16} strokeWidth={1.7} />
+              <ArrowUp
+                size={16}
+                strokeWidth={1.7}
+              />
             </a>
           </div>
         </div>

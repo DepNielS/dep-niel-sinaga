@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   FaEnvelope,
+  FaFilePdf,
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa6";
@@ -14,16 +15,25 @@ const socialLinks = [
     label: "GitHub",
     href: "https://github.com/DepNielS",
     icon: FaGithub,
+    external: true,
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/dep-niel-sinaga-26202a309",
     icon: FaLinkedin,
+    external: true,
   },
   {
     label: "Email",
     href: "mailto:depniels12@gmail.com",
     icon: FaEnvelope,
+    external: false,
+  },
+  {
+    label: "CV",
+    href: "/documents/Dep-Niel-Sinaga-CV.pdf",
+    icon: FaFilePdf,
+    external: true,
   },
 ];
 
@@ -104,23 +114,20 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Social Links */}
+            {/* Professional Links */}
             <div className="mt-8 flex flex-wrap items-center gap-5">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
-
-                const isExternal =
-                  social.label !== "Email";
 
                 return (
                   <Link
                     key={social.label}
                     href={social.href}
                     target={
-                      isExternal ? "_blank" : undefined
+                      social.external ? "_blank" : undefined
                     }
                     rel={
-                      isExternal
+                      social.external
                         ? "noopener noreferrer"
                         : undefined
                     }
